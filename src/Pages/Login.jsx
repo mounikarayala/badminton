@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useGoogleLogin } from '@react-oauth/google';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 const Login = () => {
-    const [userInfo, setUserInfo] = useState();
+    const navigate = useNavigate();
+    //const [userInfo, setUserInfo] = useState();
     const login = useGoogleLogin({
         onSuccess: (response) => {
             console.log(response);
@@ -24,7 +26,8 @@ const Login = () => {
                     verified_email: true
                     */
                     sessionStorage.setItem("userEmail", res.data.email);
-                    setUserInfo(res.data);
+                    navigate("/home");
+                    //setUserInfo(res.data);
                 })
                 .catch((err) => console.log(err));
         },
@@ -41,7 +44,6 @@ const Login = () => {
                         src="continue-google.png"
                         alt="Google Logo"
                     /></button>
-                {userInfo && <p>Welcome {userInfo.name}</p>}
             </header>
         </div>
     )

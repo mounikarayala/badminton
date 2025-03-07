@@ -24,6 +24,14 @@
   color: white;
 }
 
+.SignInButton {
+  display: 'flex';
+  align-items: 'center';
+  justify-content: 'center';
+  cursor: 'pointer';
+  box-shadow: '0 2px 4px rgba(0, 0, 0, 0.2)';
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -32,6 +40,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

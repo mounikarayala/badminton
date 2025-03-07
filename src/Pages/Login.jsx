@@ -14,6 +14,16 @@ const Login = () => {
                 }
             })
                 .then((res) => {
+                    /* Sample response
+                    email: "nagamounikarayala@gmail.com"
+                    family_name: "Mounika"
+                    given_name: "Rayala"
+                    id: "1077*********1928"
+                    name: "Rayala Mounika"
+                    picture: "https://lh3.googleusercontent.com/a/ACg8ocKku2KYaiHmFwqcT1sA7ffh6NjIU_KEjwlXGdLbLz8-cQ_bHffWwQ=s96-c"
+                    verified_email: true
+                    */
+                    sessionStorage.setItem("userEmail", res.data.email);
                     setUserInfo(res.data);
                 })
                 .catch((err) => console.log(err));
